@@ -1,0 +1,41 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+int countDistinct(string x[], int n)      //Function Definition
+{
+   int i, j, count = 1;
+   //Traverse the array
+   for (i = 1; i < n; i++)      //hold an array element
+   {
+      for (j = 0; j < i; j++)   
+      {
+         if (x[i].compare(x[j])==0)    //Check for duplicate elements
+         {
+            break;             //If duplicate elements found then break
+         }
+      }
+      if (i == j)
+      {
+         count++;     //increment the number of distinct elements
+      }
+   }
+}
+int main(){
+	int a, b[101], d[101], i, j, k;
+	string c[101][101];
+	cin >> a;
+	for(i=0;i<a;i++){
+	
+		cin >> b[i];
+		for(j=0;j<b[i];j++){
+			cin >> c[i][j];
+		}
+	}
+
+		
+	for(i=0;i<a;i++){
+		cout << countDistinct(c[i],b[i]) << "\n";
+	}
+	return 0;
+}
